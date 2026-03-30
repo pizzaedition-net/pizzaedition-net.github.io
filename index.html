@@ -4,12 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Edition Games - Play 100+ Free Online Games</title>
-    <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games.">
+    <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games. Unblocked and fun!">
+    <meta name="keywords" content="Pizza Edition Games, free online games, play games, unblocked games, pizza games, pizza edition, fun games">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Game Modal Styles */
+        #gameModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98 );
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 25px;
+            font-size: 45px; color: #ff4d4d; cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover { color: #ffcc00; transform: scale(1.1); }
+        .game-container {
+            width: 95%; max-width: 1100px;
+            height: 85vh;
+            background: #000;
+            border: 3px solid #ff4d4d;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+        }
+        .game-container iframe { width: 100%; height: 100%; border: none; }
+        .modal-header { margin-bottom: 15px; text-align: center; }
+        .modal-header h2 { color: #ffcc00; font-size: 1.8rem; }
+        
+        /* Icon & Image Styling */
+        .game-card-image {
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-bottom: 1px solid #333;
+            overflow: hidden;
+            font-size: 4rem;
+        }
+
+        /* Article Section Styling (Centered & Large) */
+        .article-section {
+            padding: 80px 15%;
+            background: #111;
+            text-align: center;
+            color: #cccccc;
+        }
+        .article-section h2 {
+            font-size: 2.8rem;
+            color: #ffcc00;
+            margin-bottom: 30px;
+        }
+        .article-section h3 {
+            font-size: 2rem;
+            color: #ff4d4d;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+        .article-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .article-section ul {
+            list-style: none;
+            margin-bottom: 30px;
+            padding: 0;
+        }
+        .article-section ul li {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+        .article-section ul li strong {
+            color: #ffcc00;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Header & Navigation -->
     <header>
         <a href="index.html" class="logo">🍕 Pizza Edition <span>Games</span></a>
         <nav>
@@ -23,6 +111,7 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to Pizza Edition Games</h1>
         <p>Your #1 destination for the best Pizza Edition Games. Play 100+ unblocked games for free!</p>
@@ -31,23 +120,61 @@
         </div>
     </section>
 
-    <section class="games-section">
-        <div class="games-grid" id="gamesGrid"></div>
-    </section>
-
-    <!-- Pizza Edition Article Section -->
-    <section class="content-area" style="text-align: center; padding: 60px 15%; background: #111;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; color: #ffcc00; margin-bottom: 30px;">Pizza Edition</h2>
-            <p style="font-size: 1.2rem; color: #ccc; line-height: 1.8;">
-                Pizza Edition is a popular online gaming platform that offers a wide variety of unblocked games for players of all ages. 
-                Whether you're looking for action-packed adventures, brain-teasing puzzles, or fast-paced racing games, 
-                Pizza Edition has something for everyone. Our mission is to provide a safe and fun environment where gamers 
-                can enjoy their favorite titles without any restrictions. Join the Pizza Edition community today and start playing!
-            </p>
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="category-container">
+            <button class="cat-btn active" onclick="filterCategory('All', this)">All Games</button>
+            <button class="cat-btn" onclick="filterCategory('Action', this)">Action</button>
+            <button class="cat-btn" onclick="filterCategory('Racing', this)">Racing</button>
+            <button class="cat-btn" onclick="filterCategory('Puzzle', this)">Puzzle</button>
+            <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
         </div>
     </section>
 
+    <!-- Games Grid (4 Columns) -->
+    <section class="games-section">
+        <div class="games-grid" id="gamesGrid">
+            <!-- Games will be loaded here by JavaScript from games.js -->
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div id="gameModal">
+        <span class="close-btn" onclick="closeGame()">&times;</span>
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+        </div>
+        <div class="game-container" id="modalContent">
+            <!-- Iframe will be injected here -->
+        </div>
+    </div>
+
+    <!-- Full Article Section (Pasted Content 7) -->
+    <section class="article-section">
+        <div class="container">
+            <h2>Pizza Edition: The Ultimate Destination for Unblocked Games</h2>
+            <p>In the world of online gaming, finding a platform that offers a wide variety of high-quality, unblocked games can be a challenge. This is where <strong>Pizza Edition</strong> comes in. As a premier destination for gamers of all ages, Pizza Edition provides a seamless and fun gaming experience without the usual restrictions found in schools or workplaces.</p>
+            
+            <h3>What is Pizza Edition?</h3>
+            <p><strong>Pizza Edition</strong> is a popular online gaming portal that hosts a massive collection of free-to-play games. From action-packed adventures and fast-paced racing to brain-teasing puzzles and sports simulations, Pizza Edition has something for everyone. The platform is designed to be fast, secure, and easy to navigate, making it a favorite among the gaming community.</p>
+
+            <h3>Why Choose Pizza Edition Games?</h3>
+            <ul>
+                <li><strong>Unblocked Access:</strong> One of the biggest advantages of Pizza Edition is that its games are unblocked, meaning you can enjoy them even on restricted networks.</li>
+                <li><strong>No Downloads Required:</strong> All Pizza Edition Games run directly in your web browser. There's no need to install any software or plugins.</li>
+                <li><strong>Wide Variety:</strong> With over 100+ unique titles, you'll never run out of options. Whether you're a fan of classic retro games or modern 3D titles, Pizza Edition has it all.</li>
+                <li><strong>Safe and Secure:</strong> We prioritize the safety of our users, ensuring a secure environment for everyone to enjoy their favorite Pizza Edition Games.</li>
+            </ul>
+
+            <h3>How to Play on Pizza Edition</h3>
+            <p>Getting started with <strong>Pizza Edition Games</strong> is incredibly simple. Just visit our homepage, browse through the extensive library of games, and click on the "Play Now" button for any title that catches your eye. Our platform is optimized for both desktop and mobile devices, so you can play whenever and wherever you want.</p>
+
+            <h3>Join the Pizza Edition Community</h3>
+            <p>Pizza Edition is more than just a gaming site; it's a community of passionate gamers. We are constantly updating our library with new and exciting Pizza Edition Games to keep the fun going. Join us today and discover why millions of players choose Pizza Edition as their go-to source for online entertainment!</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -75,16 +202,32 @@
         </div>
     </footer>
 
+    <!-- JavaScript Files -->
     <script src="games.js"></script>
     <script>
-        const grid = document.getElementById('gamesGrid' );
+        const grid = document.getElementById('gamesGrid');
+        let currentCategory = "All";
+        let currentSearch = "";
+
         function displayGames() {
             grid.innerHTML = "";
-            games.forEach(game => {
+            let filtered = games;
+            
+            if (currentCategory !== "All") {
+                filtered = filtered.filter(g => g.category === currentCategory);
+            }
+            
+            if (currentSearch !== "") {
+                filtered = filtered.filter(g => g.title.toLowerCase().includes(currentSearch.toLowerCase()));
+            }
+
+            filtered.forEach(game => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 card.innerHTML = `
-                    <div class="game-card-image">${game.icon || '🎮'}</div>
+                    <div class="game-card-image">
+                        ${game.icon || '🎮'}
+                    </div>
                     <div class="game-info">
                         <h3>${game.title}</h3>
                         <button onclick="openGame('${game.title}', '${game.url}')">Play Now</button>
@@ -93,9 +236,34 @@
                 grid.appendChild(card);
             });
         }
-        function openGame(title, url) {
-            // Modal logic here (same as before)
+
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = cat;
+            displayGames();
         }
+
+        function openGame(title, url) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalContent').innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
+            document.getElementById('gameModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            window.history.pushState({}, '', `?game=${title.replace(/\s+/g, '-').toLowerCase()}`);
+        }
+
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.getElementById('modalContent').innerHTML = "";
+            document.body.style.overflow = 'auto';
+            window.history.pushState({}, '', 'index.html');
+        }
+
+        document.getElementById('gameSearch').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            displayGames();
+        });
+
         window.onload = displayGames;
     </script>
 </body>
