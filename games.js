@@ -1,7 +1,6 @@
 /* 
-  Pizza Edition Games - Fixed Icon Database
-  Using reliable GamePix Icon URLs for a professional square grid.
-  No risky keywords, no "**" stars.
+  Pizza Edition Games - Final Fixed Database
+  Correct Icon Format | No "**" Stars | AdSense Safe
 */
 
 const gamesData = [
