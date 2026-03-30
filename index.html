@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags - Focus Keyword: Pizza Edition Games -->
-    <title>Pizza Edition Games - Play Unblocked Games Online for Free</title>
-    <meta name="description" content="Welcome to Pizza Edition Games, the best place to play unblocked games online. Discover a wide variety of fun and exciting Pizza Edition Games that are safe and free for school or home.">
+    <title>Pizza Edition Games - Play 100+ Unblocked Games Online for Free</title>
+    <meta name="description" content="Welcome to Pizza Edition Games, the ultimate destination for 100+ unblocked games online. Play the best Pizza Edition Games safely and for free. No downloads required.">
     <meta name="keywords" content="Pizza Edition Games, unblocked games, play online games, free games, school games, Pizza Edition, unblocked games 66, unblocked games 76">
     <link rel="canonical" href="https://pizzaedition-net.github.io/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pizzaedition-net.github.io/">
-    <meta property="og:title" content="Pizza Edition Games - Play Unblocked Games Online">
-    <meta property="og:description" content="Discover the best Pizza Edition Games for school and home. Play unblocked games for free with a professional and safe experience.">
+    <meta property="og:title" content="Pizza Edition Games - Play 100+ Unblocked Games Online">
+    <meta property="og:description" content="Discover 100+ best Pizza Edition Games for school and home. Play unblocked games for free with a professional and safe experience.">
     
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="style.css">
@@ -41,68 +41,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to Pizza Edition Games</h1>
-        <p>Your premium destination for the best unblocked games. Play **Pizza Edition Games** safely and for free, anytime, anywhere.</p>
+        <p>Your premium destination for 100+ unblocked games. Play **Pizza Edition Games** safely and for free, anytime, anywhere.</p>
     </section>
 
     <!-- Main Game Grid -->
     <main class="container">
-        <h2 class="section-title">Popular Pizza Edition Games</h2>
+        <h2 class="section-title">Explore 100+ Pizza Edition Games</h2>
+        
+        <!-- Search Bar for Better UX -->
+        <div style="margin-bottom: 30px; text-align: center;">
+            <input type="text" id="gameSearch" placeholder="Search for Pizza Edition Games..." style="width: 100%; max-width: 600px; padding: 15px; border-radius: 25px; border: 1px solid #333; background: #1e1e1e; color: white; font-size: 1rem;">
+        </div>
+
         <div class="game-grid" id="gameGrid">
-            
-            <!-- Game 1: Minecraft-ish MMO -->
-            <a href="game-minecraft.html" class="game-card">
-                <img src="https://play.gamepix.com/minecraft-ish-mmo/banner.png" alt="Minecraft-ish MMO - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>Minecraft-ish MMO</h3>
-                    <span>Adventure</span>
-                </div>
-            </a>
-
-            <!-- Game 2: Subway Surfers Style -->
-            <a href="game-surfers.html" class="game-card">
-                <img src="https://play.gamepix.com/bus-and-subway-surfer/banner.png" alt="Subway Surfers - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>Subway Surfers</h3>
-                    <span>Running</span>
-                </div>
-            </a>
-
-            <!-- Game 3: Moto X3M -->
-            <a href="game-moto-x3m.html" class="game-card">
-                <img src="https://play.gamepix.com/moto-x3m/banner.png" alt="Moto X3M - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>Moto X3M</h3>
-                    <span>Racing</span>
-                </div>
-            </a>
-
-            <!-- Game 4: Temple Run -->
-            <a href="game-temple-run.html" class="game-card">
-                <img src="https://play.gamepix.com/temple-run-2/banner.png" alt="Temple Run 2 - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>Temple Run 2</h3>
-                    <span>Running</span>
-                </div>
-            </a>
-
-            <!-- Game 5: 2048 -->
-            <a href="game-2048.html" class="game-card">
-                <img src="https://play.gamepix.com/2048/banner.png" alt="2048 - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>2048 Puzzle</h3>
-                    <span>Puzzle</span>
-                </div>
-            </a>
-
-            <!-- Game 6: Slope -->
-            <a href="game-slope.html" class="game-card">
-                <img src="https://play.gamepix.com/slope/banner.png" alt="Slope - Pizza Edition Games" class="game-thumb">
-                <div class="game-info">
-                    <h3>Slope Run</h3>
-                    <span>Arcade</span>
-                </div>
-            </a>
-
+            <!-- Games will be automatically loaded here from games.js -->
         </div>
 
         <!-- SEO Content Section -->
@@ -150,6 +102,43 @@
             &copy; 2026 Pizza Edition Games. All Rights Reserved.
         </div>
     </footer>
+
+    <!-- Dynamic Game Loading Script -->
+    <script src="games.js"></script>
+    <script>
+        const gameGrid = document.getElementById('gameGrid');
+        const searchInput = document.getElementById('gameSearch');
+
+        // Function to render games
+        function renderGames(games) {
+            gameGrid.innerHTML = '';
+            games.forEach(game => {
+                const gameCard = `
+                    <a href="game.html?id=${game.id}" class="game-card">
+                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb">
+                        <div class="game-info">
+                            <h3>${game.title}</h3>
+                            <span>${game.category}</span>
+                        </div>
+                    </a>
+                `;
+                gameGrid.innerHTML += gameCard;
+            });
+        }
+
+        // Initial Load
+        renderGames(gamesData);
+
+        // Search Functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredGames = gamesData.filter(game => 
+                game.title.toLowerCase().includes(searchTerm) || 
+                game.category.toLowerCase().includes(searchTerm)
+            );
+            renderGames(filteredGames);
+        });
+    </script>
 
 </body>
 </html>
