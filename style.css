@@ -1,0 +1,273 @@
+/* 
+  Project: Pizza Edition Games
+  Description: Professional, Dark-Themed, SEO-Optimized Gaming Site Styles
+  Focus Keyword: Pizza Edition Games
+*/
+
+:root {
+  --primary-color: #ff4d4d; /* Pizza Red */
+  --secondary-color: #ffcc00; /* Pizza Cheese Yellow */
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+  background: rgba(18, 18, 18, 0.95);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--secondary-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+  padding: 60px 5%;
+  text-align: center;
+  background: linear-gradient(to bottom, #1a1a1a, var(--bg-dark));
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Game Grid */
+.container {
+  padding: 40px 5%;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.game-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.game-thumb {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 15px;
+}
+
+.game-info h3 {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+
+.game-info span {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+/* Responsive Game Embed (As requested) */
+.gamepix-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+.gamepix-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Blog & Content Sections */
+.content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--bg-card);
+  border-radius: 15px;
+}
+
+.blog-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.blog-card h2 {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background: #0a0a0a;
+  padding: 50px 5% 20px;
+  margin-top: 60px;
+  border-top: 1px solid #222;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-about h4 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.footer-links h4 {
+  color: var(--text-main);
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* SEO Content Styling */
+.seo-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+.seo-text h2 {
+  color: var(--text-main);
+  margin: 20px 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  nav ul {
+    margin-top: 15px;
+  }
+  nav ul li {
+    margin: 0 10px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
