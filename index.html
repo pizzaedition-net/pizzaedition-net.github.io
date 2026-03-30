@@ -5,108 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Edition Games - Play 100+ Free Online Games</title>
     <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games. Unblocked and fun!">
-    <meta name="keywords" content="Pizza Edition Games, free online games, play games, unblocked games, pizza games, pizza edition, fun games">
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Game Modal Styles */
-        #gameModal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98 );
-            z-index: 2000;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 25px;
-            font-size: 45px; color: #ff4d4d; cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .close-btn:hover { color: #ffcc00; transform: scale(1.1); }
-        .game-container {
-            width: 95%; max-width: 1100px;
-            height: 85vh;
-            background: #000;
-            border: 3px solid #ff4d4d;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
-        }
-        .game-container iframe { width: 100%; height: 100%; border: none; }
-        .modal-header { margin-bottom: 15px; text-align: center; }
-        .modal-header h2 { color: #ffcc00; font-size: 1.8rem; }
-        
-        /* Icon & Image Styling */
-        .game-card-image {
-            background: linear-gradient(45deg, #1a1a1a, #333);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            aspect-ratio: 1/1;
-            border-bottom: 1px solid #333;
-            overflow: hidden;
-            font-size: 4rem;
+        :root {
+            --primary: #ff4d4d;
+            --secondary: #ffcc00;
+            --bg: #0f0f0f;
+            --card: #1a1a1a;
+            --text: #ffffff;
         }
 
-        /* Article Section Styling */
-        .article-section {
-            padding: 80px 15%;
-            background: #111;
-            text-align: left;
-            color: #cccccc;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg ); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Header */
+        header {
+            background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--primary); position: sticky; top: 0; z-index: 1000;
         }
-        .article-section h2 {
-            font-size: 2.5rem;
-            color: #ffcc00;
-            margin-bottom: 30px;
-            text-align: center;
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--secondary); }
+
+        /* Hero */
+        .hero { padding: 60px 5%; text-align: center; background: #111; border-bottom: 1px solid #222; }
+        .hero h1 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px; }
+        .hero p { color: #aaa; margin-bottom: 25px; }
+        .search-container { max-width: 600px; margin: 0 auto; }
+        .search-container input { 
+            width: 100%; padding: 15px 25px; border-radius: 30px; border: 2px solid var(--primary); 
+            background: #222; color: #fff; outline: none; font-size: 1rem;
         }
-        .article-section h3 {
-            font-size: 1.8rem;
-            color: #ff4d4d;
-            margin-top: 40px;
-            margin-bottom: 20px;
+
+        /* Main Layout with Sidebars */
+        .main-layout {
+            display: flex; justify-content: center; padding: 40px 2%; gap: 20px;
         }
-        .article-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
+        .sidebar-ad {
+            width: 160px; min-width: 160px; height: 600px; background: #111;
+            display: flex; align-items: center; justify-content: center; position: sticky; top: 100px;
         }
-        .article-section ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
+        .content-wrapper { flex-grow: 1; max-width: 1100px; }
+
+        /* Categories */
+        .category-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .cat-btn {
+            background: #1a1a1a; color: #fff; border: 2px solid #333; padding: 10px 25px;
+            border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s;
         }
-        .article-section ul li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        .cat-btn:hover, .cat-btn.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4); }
+
+        /* Horizontal Ad */
+        .horizontal-ad {
+            width: 100%; max-width: 728px; height: 90px; margin: 0 auto 40px;
+            background: #111; display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-        .faq-container {
-            margin-top: 40px;
+
+        /* Games Grid */
+        .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .game-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: 0.3s; text-align: center; }
+        .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); }
+        .game-card-image { 
+            width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; 
+            font-size: 4rem; background: #222; border-bottom: 1px solid #333;
         }
-        .faq-item {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 5px solid #ff4d4d;
+        .game-info { padding: 15px; }
+        .game-info h3 { font-size: 1rem; margin-bottom: 12px; color: var(--secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .game-info button { 
+            background: var(--primary); color: #fff; border: none; padding: 8px 20px; 
+            border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%;
         }
-        .faq-item strong {
-            display: block;
-            font-size: 1.2rem;
-            color: #ffcc00;
-            margin-bottom: 10px;
+
+        /* Modal */
+        #gameModal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center;
         }
+        .close-btn { position: absolute; top: 15px; right: 25px; font-size: 45px; color: var(--primary); cursor: pointer; font-weight: bold; }
+        .game-container { 
+            width: 95%; max-width: 1100px; height: 85vh; background: #000; 
+            border: 3px solid var(--primary); border-radius: 15px; overflow: hidden; 
+        }
+        .game-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* Article Section */
+        .article-section { padding: 80px 10%; background: #111; color: #ccc; border-top: 1px solid #222; }
+        .article-section h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 30px; text-align: center; }
+        .article-section h3 { font-size: 1.8rem; color: var(--primary); margin-top: 40px; margin-bottom: 20px; }
+        .article-section p { font-size: 1.1rem; margin-bottom: 20px; }
+        .article-section ul { margin-bottom: 20px; padding-left: 20px; }
+        .article-section ul li { margin-bottom: 10px; font-size: 1.1rem; }
+        .faq-item { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid var(--primary); }
+        .faq-item strong { display: block; font-size: 1.2rem; color: var(--secondary); margin-bottom: 10px; }
+
+        /* Footer */
+        footer { background: #000; padding: 60px 10% 20px; border-top: 3px solid var(--primary); margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--secondary); padding-left: 5px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #222; margin-top: 40px; color: #555; }
+
+        @media (max-width: 1200px) { .sidebar-ad { display: none; } .main-layout { padding: 20px 5%; } }
+        @media (max-width: 768px) { .games-grid { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
     <header>
         <a href="index.html" class="logo">🍕 Pizza Edition <span>Games</span></a>
         <nav>
@@ -120,7 +129,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to Pizza Edition Games</h1>
         <p>Your #1 destination for the best Pizza Edition Games. Play 100+ unblocked games for free!</p>
@@ -130,16 +138,12 @@
     </section>
 
     <div class="main-layout">
-        <!-- Left Sidebar Ad -->
         <div class="sidebar-ad">
-            <script>
-                atOptions = { 'key' : '6f5634b1298ddda613ff864793ada29e', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
-            </script>
+            <script>atOptions = { 'key' : '6f5634b1298ddda613ff864793ada29e', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };</script>
             <script src="https://www.highperformanceformat.com/6f5634b1298ddda613ff864793ada29e/invoke.js"></script>
         </div>
 
         <div class="content-wrapper">
-            <!-- Improved Categories -->
             <div class="category-container">
                 <button class="cat-btn active" onclick="filterCategory('All', this )">All Games</button>
                 <button class="cat-btn" onclick="filterCategory('Action', this)">Action</button>
@@ -148,60 +152,34 @@
                 <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
             </div>
 
-            <!-- Horizontal Ad -->
             <div class="horizontal-ad">
-                <script>
-                    atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
-                </script>
+                <script>atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script>
                 <script src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
             </div>
 
-            <!-- Games Grid -->
             <div class="games-grid" id="gamesGrid"></div>
         </div>
 
-        <!-- Right Sidebar Ad -->
         <div class="sidebar-ad">
-            <script>
-                atOptions = { 'key' : '6f5634b1298ddda613ff864793ada29e', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
-            </script>
+            <script>atOptions = { 'key' : '6f5634b1298ddda613ff864793ada29e', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };</script>
             <script src="https://www.highperformanceformat.com/6f5634b1298ddda613ff864793ada29e/invoke.js"></script>
         </div>
     </div>
 
-    <!-- Game Modal -->
     <div id="gameModal">
         <span class="close-btn" onclick="closeGame( )">&times;</span>
-        <div class="modal-header">
-            <h2 id="modalTitle"></h2>
-        </div>
-        <div class="game-container" id="modalContent">
-            <!-- Iframe will be injected here -->
-        </div>
+        <div class="modal-header"><h2 id="modalTitle" style="color: var(--secondary); margin-bottom: 10px;"></h2></div>
+        <div class="game-container" id="modalContent"></div>
     </div>
 
-    <!-- New Article Section -->
     <section class="article-section">
         <div class="container">
-            <h1> The Pizza Edition 2026</h1>
+            <h1> The Pizza Edition Games 2026</h1>
             <p>I sat in study hall. The teacher turned away. I typed “pizza edition”. A game loaded instantly. That quick rush felt amazing. Boring time turned exciting. I chased this feeling for years. <strong>Pizza Edition</strong> gives free browser games that work anywhere. No downloads. No sign-ups. Just click and play fullscreen. It slips past blocks easily. This guide shares what really works.</p>
-            
             <h2>What Is Pizza Edition?</h2>
             <p><strong>Pizza Edition</strong> is a simple collection of sites packed with fun unblocked games. Games load fast on Chromebooks and school computers. The name is easy to remember. Kids share new links quietly.</p>
             <p>Some think it means only the pizza delivery game. You race through traffic and deliver hot pizzas before time runs out. It feels crazy and exciting. But most enjoy the big platform with hundreds of games. All run right in your browser.</p>
-            <p>I love its simplicity. You escape stress for a few minutes. Small wins lift your mood. These games give you control again. You relax and feel sharper.</p>
-            
-            <p><strong>Quick start:</strong></p>
-            <ul>
-                <li>Open any working version</li>
-                <li>Pick a fun game</li>
-                <li>Press F11 for fullscreen</li>
-                <li>Bookmark it</li>
-            </ul>
-            <p>I built my own version last year. It still works when others get blocked. Pizza Edition feels like freedom in one tab.</p>
-
             <h3>Best Games</h3>
-            <p>These games still make me smile:</p>
             <ul>
                 <li><strong>Football management games</strong> – Manage your team and win big.</li>
                 <li><strong>Balance and speed games</strong> – Race down crazy paths.</li>
@@ -209,38 +187,14 @@
                 <li><strong>Basketball battles</strong> – Quick fights.</li>
                 <li><strong>Pizza delivery game</strong> – Dodge cars and beat your time.</li>
             </ul>
-            <p>My top picks for short breaks: Football management game, Balance speed game, Track building game. Each game gives quick wins. Pick one today. Tell me in the comments which one hooked you.</p>
-
             <h3>FAQ</h3>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <strong>Is Pizza Edition safe?</strong>
-                    <p>Yes, on clean versions. They run simple games with no downloads.</p>
-                </div>
-                <div class="faq-item">
-                    <strong>Why do versions get blocked?</strong>
-                    <p>Filters update often. New versions appear quickly.</p>
-                </div>
-                <div class="faq-item">
-                    <strong>Best game for short breaks?</strong>
-                    <p>Football management or balance speed game.</p>
-                </div>
-                <div class="faq-item">
-                    <strong>How do I make my own version?</strong>
-                    <p>Use a free simple site creator. Add game links and publish.</p>
-                </div>
-                <div class="faq-item">
-                    <strong>What if a game does not load?</strong>
-                    <p>Try another version or clear your cache.</p>
-                </div>
-            </div>
-
+            <div class="faq-item"><strong>Is Pizza Edition safe?</strong><p>Yes, on clean versions. They run simple games with no downloads.</p></div>
+            <div class="faq-item"><strong>Why do versions get blocked?</strong><p>Filters update often. New versions appear quickly.</p></div>
             <h3>Final Thoughts</h3>
             <p>Pizza Edition turned my tough days lighter. Start small. Play one game. Build your own version when ready. You control this. Share your favorite game below. Bookmark this page. Have fun and stay smart. Life feels better with good games ready.</p>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -263,12 +217,9 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Pizza Edition Games. All Rights Reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Pizza Edition Games. All Rights Reserved.</p></div>
     </footer>
 
-    <!-- JavaScript Files -->
     <script src="games.js"></script>
     <script>
         const grid = document.getElementById('gamesGrid');
@@ -278,22 +229,14 @@
         function displayGames() {
             grid.innerHTML = "";
             let filtered = games;
-            
-            if (currentCategory !== "All") {
-                filtered = filtered.filter(g => g.category === currentCategory);
-            }
-            
-            if (currentSearch !== "") {
-                filtered = filtered.filter(g => g.title.toLowerCase().includes(currentSearch.toLowerCase()));
-            }
+            if (currentCategory !== "All") filtered = filtered.filter(g => g.category === currentCategory);
+            if (currentSearch !== "") filtered = filtered.filter(g => g.title.toLowerCase().includes(currentSearch.toLowerCase()));
 
             filtered.forEach(game => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 card.innerHTML = `
-                    <div class="game-card-image">
-                        ${game.icon || '🎮'}
-                    </div>
+                    <div class="game-card-image">${game.icon || '🎮'}</div>
                     <div class="game-info">
                         <h3>${game.title}</h3>
                         <button onclick="openGame('${game.title}', '${game.url}')">Play Now</button>
