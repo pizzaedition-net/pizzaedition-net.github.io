@@ -64,6 +64,12 @@
         #gameSearch:focus {
             border-color: #ff4d4d;
         }
+        /* Ensure images are visible */
+        .game-thumb {
+            display: block !important;
+            min-height: 150px;
+            background: #222;
+        }
     </style>
 </head>
 <body>
@@ -178,9 +184,16 @@
             });
 
             filteredGames.forEach(game => {
+                // Ensure image URL is correct
+                let iconUrl = game.image;
+                if (!iconUrl.startsWith('http')) {
+                    // Fix if image URL is missing domain
+                    iconUrl = `https://www.gamepix.com/games/${game.id}/icon.png`;
+                }
+
                 const gameCard = `
                     <a href="game.html?id=${game.id}" class="game-card">
-                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb" loading="lazy">
+                        <img src="${iconUrl}" alt="${game.title} - Pizza Edition Games" class="game-thumb" loading="lazy">
                         <div class="game-info">
                             <h3>${game.title}</h3>
                             <span>${game.category}</span>
