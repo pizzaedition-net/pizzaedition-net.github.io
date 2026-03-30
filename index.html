@@ -40,6 +40,18 @@
         .game-container iframe { width: 100%; height: 100%; border: none; }
         .modal-header { margin-bottom: 15px; text-align: center; }
         .modal-header h2 { color: #ffcc00; font-size: 1.8rem; }
+        
+        /* Ensure icons look good */
+        .game-card-image {
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-bottom: 1px solid #333;
+        }
     </style>
 </head>
 <body>
@@ -70,18 +82,18 @@
     <!-- Categories Section -->
     <section class="categories-section">
         <div class="category-container">
-            <button class="cat-btn active" onclick="filterCategory('All')">All Games</button>
-            <button class="cat-btn" onclick="filterCategory('Action')">Action</button>
-            <button class="cat-btn" onclick="filterCategory('Racing')">Racing</button>
-            <button class="cat-btn" onclick="filterCategory('Puzzle')">Puzzle</button>
-            <button class="cat-btn" onclick="filterCategory('Sports')">Sports</button>
+            <button class="cat-btn active" onclick="filterCategory('All', this)">All Games</button>
+            <button class="cat-btn" onclick="filterCategory('Action', this)">Action</button>
+            <button class="cat-btn" onclick="filterCategory('Racing', this)">Racing</button>
+            <button class="cat-btn" onclick="filterCategory('Puzzle', this)">Puzzle</button>
+            <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
         </div>
     </section>
 
     <!-- Games Grid -->
     <section class="games-section">
         <div class="games-grid" id="gamesGrid">
-            <!-- Games will be loaded here by JavaScript -->
+            <!-- Games will be loaded here by JavaScript from games.js -->
         </div>
     </section>
 
@@ -145,27 +157,32 @@
         </div>
     </footer>
 
+    <!-- JavaScript Files -->
     <script src="games.js"></script>
     <script>
         const grid = document.getElementById('gamesGrid');
-        
-        function displayGames(filter = "", category = "All") {
+        let currentCategory = "All";
+        let currentSearch = "";
+
+        function displayGames() {
             grid.innerHTML = "";
             let filtered = games;
             
-            if (category !== "All") {
-                filtered = filtered.filter(g => g.category === category);
+            if (currentCategory !== "All") {
+                filtered = filtered.filter(g => g.category === currentCategory);
             }
             
-            if (filter !== "") {
-                filtered = filtered.filter(g => g.title.toLowerCase().includes(filter.toLowerCase()));
+            if (currentSearch !== "") {
+                filtered = filtered.filter(g => g.title.toLowerCase().includes(currentSearch.toLowerCase()));
             }
 
             filtered.forEach(game => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 card.innerHTML = `
-                    <img src="${game.img}" alt="${game.title}" class="game-thumbnail" style="width:100%; aspect-ratio:1/1; object-fit:cover;">
+                    <div class="game-card-image">
+                        ${game.icon}
+                    </div>
                     <div class="game-info">
                         <h3>${game.title}</h3>
                         <button onclick="openGame('${game.title}', '${game.url}')">Play Now</button>
@@ -175,10 +192,11 @@
             });
         }
 
-        function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            displayGames("", cat);
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = cat;
+            displayGames();
         }
 
         function openGame(title, url) {
@@ -196,8 +214,13 @@
             window.history.pushState({}, '', 'index.html');
         }
 
-        document.getElementById('gameSearch').addEventListener('input', (e) => displayGames(e.target.value));
-        displayGames();
+        document.getElementById('gameSearch').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            displayGames();
+        });
+
+        // Initial Load
+        window.onload = displayGames;
     </script>
 </body>
 </html>
