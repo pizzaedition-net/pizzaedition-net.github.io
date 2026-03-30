@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Edition Games - Play 100+ Free Online Games</title>
-    <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games.">
+    <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games. Unblocked and fun!">
+    <meta name="keywords" content="Pizza Edition Games, free online games, play games, unblocked games, pizza games, pizza edition, fun games">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Game Modal Styles */
+        #gameModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98 );
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 25px;
+            font-size: 45px; color: #ff4d4d; cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover { color: #ffcc00; transform: scale(1.1); }
+        .game-container {
+            width: 95%; max-width: 1100px;
+            height: 85vh;
+            background: #000;
+            border: 3px solid #ff4d4d;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+        }
+        .game-container iframe { width: 100%; height: 100%; border: none; }
+        .modal-header { margin-bottom: 15px; text-align: center; }
+        .modal-header h2 { color: #ffcc00; font-size: 1.8rem; }
+    </style>
 </head>
 <body>
 
@@ -26,17 +60,17 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Pizza Edition Games</h1>
-        <p>Play 100+ unblocked Pizza Edition Games for free! No downloads, just fun.</p>
+        <h1>Welcome to Pizza Edition Games</h1>
+        <p>Your #1 destination for the best Pizza Edition Games. Play 100+ unblocked games for free!</p>
         <div class="search-container">
-            <input type="text" id="gameSearch" placeholder="Search Pizza Edition Games...">
+            <input type="text" id="gameSearch" placeholder="Search for your favorite Pizza Edition Games...">
         </div>
     </section>
 
     <!-- Categories Section -->
     <section class="categories-section">
         <div class="category-container">
-            <button class="cat-btn active" onclick="filterCategory('All' )">All Games</button>
+            <button class="cat-btn active" onclick="filterCategory('All')">All Games</button>
             <button class="cat-btn" onclick="filterCategory('Action')">Action</button>
             <button class="cat-btn" onclick="filterCategory('Racing')">Racing</button>
             <button class="cat-btn" onclick="filterCategory('Puzzle')">Puzzle</button>
@@ -47,16 +81,41 @@
     <!-- Games Grid -->
     <section class="games-section">
         <div class="games-grid" id="gamesGrid">
-            <!-- Games will be loaded here -->
+            <!-- Games will be loaded here by JavaScript -->
         </div>
     </section>
 
     <!-- Game Modal -->
     <div id="gameModal">
         <span class="close-btn" onclick="closeGame()">&times;</span>
-        <div class="modal-header"><h2 id="modalTitle"></h2></div>
-        <div class="game-container" id="modalContent"></div>
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+        </div>
+        <div class="game-container" id="modalContent">
+            <!-- Iframe will be injected here -->
+        </div>
     </div>
+
+    <!-- SEO Content Area -->
+    <section class="content-area">
+        <div class="container">
+            <h2>Why Play Pizza Edition Games?</h2>
+            <p>At <strong>Pizza Edition Games</strong>, we provide a high-quality gaming experience without any interruptions. Our collection of Pizza Edition Games is handpicked to ensure you get the most fun out of every session. Whether you love racing, puzzles, or action, we have the perfect Pizza Edition Games for you.</p>
+            
+            <h3>How to Play Pizza Edition Games</h3>
+            <p>Simply browse our list of 100+ games, click on the "Play Now" button, and enjoy! All our Pizza Edition Games are free to play and require no downloads. We use advanced technology to make sure every Pizza Edition Game runs smoothly on your browser.</p>
+
+            <h3>Frequently Asked Questions (FAQ)</h3>
+            <div class="faq-item">
+                <strong>Are Pizza Edition Games safe for school?</strong>
+                <p>Yes, our Pizza Edition Games are unblocked and safe to play during your breaks.</p>
+            </div>
+            <div class="faq-item">
+                <strong>How many Pizza Edition Games are available?</strong>
+                <p>We currently have over 100+ unique Pizza Edition Games, and we add more every week!</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer Section -->
     <footer>
@@ -106,9 +165,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 card.innerHTML = `
-                    <div class="game-card-image" style="background: linear-gradient(45deg, #1a1a1a, #333); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-                        ${game.icon || '🎮'}
-                    </div>
+                    <img src="${game.img}" alt="${game.title}" class="game-thumbnail" style="width:100%; aspect-ratio:1/1; object-fit:cover;">
                     <div class="game-info">
                         <h3>${game.title}</h3>
                         <button onclick="openGame('${game.title}', '${game.url}')">Play Now</button>
