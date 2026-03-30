@@ -1,8 +1,3 @@
-/* 
-   Pizza Edition Games - 100% Unique Games Database
-   100 Unique Titles, 100 Unique Icons, 100 Unique Games
-*/
-
 const games = [
     { title: "Pizza Edition Moto X3M", icon: "🏍️", category: "Racing", url: "https://play.gamepix.com/moto-x3m/embed?sid=EE698" },
     { title: "Pizza Edition Bubble Shooter", icon: "🔮", category: "Puzzle", url: "https://play.gamepix.com/bubble-shooter/embed?sid=EE698" },
@@ -15,12 +10,12 @@ const games = [
     { title: "Pizza Edition Basketball Stars", icon: "🏀", category: "Sports", url: "https://play.gamepix.com/basketball-stars/embed?sid=EE698" },
     { title: "Pizza Edition Drift Hunters", icon: "🏎️", category: "Racing", url: "https://play.gamepix.com/drift-hunters/embed?sid=EE698" },
     { title: "Pizza Edition Cut The Rope", icon: "🍬", category: "Puzzle", url: "https://play.gamepix.com/cut-the-rope/embed?sid=EE698" },
-    { title: "Pizza Edition Solitaire Classic", icon: "🃏", category: "Puzzle", url: "https://play.gamepix.com/solitaire/embed?sid=EE698" },
-    { title: "Pizza Edition Mahjong Deluxe", icon: "🀄", category: "Puzzle", url: "https://play.gamepix.com/mahjong/embed?sid=EE698" },
+    { title: "Pizza Edition Solitaire", icon: "🃏", category: "Puzzle", url: "https://play.gamepix.com/solitaire/embed?sid=EE698" },
+    { title: "Pizza Edition Mahjong", icon: "🀄", category: "Puzzle", url: "https://play.gamepix.com/mahjong/embed?sid=EE698" },
     { title: "Pizza Edition Football Masters", icon: "⚽", category: "Sports", url: "https://play.gamepix.com/football-masters/embed?sid=EE698" },
-    { title: "Pizza Edition Vex 7 Adventure", icon: "🏃‍♂️", category: "Action", url: "https://play.gamepix.com/vex-7/embed?sid=EE698" },
-    { title: "Pizza Edition Fireboy & Watergirl", icon: "🔥", category: "Action", url: "https://play.gamepix.com/fireboy-and-watergirl/embed?sid=EE698" },
-    { title: "Pizza Edition Slope Run", icon: "🎾", category: "Action", url: "https://play.gamepix.com/slope/embed?sid=EE698" },
+    { title: "Pizza Edition Vex 7", icon: "🏃‍♂️", category: "Action", url: "https://play.gamepix.com/vex-7/embed?sid=EE698" },
+    { title: "Pizza Edition Fireboy & Watergirl", icon: "🔥", category: "Adventure", url: "https://play.gamepix.com/fireboy-and-watergirl/embed?sid=EE698" },
+    { title: "Pizza Edition Slope", icon: "🎾", category: "Action", url: "https://play.gamepix.com/slope/embed?sid=EE698" },
     { title: "Pizza Edition Om Nom Run", icon: "🐸", category: "Action", url: "https://play.gamepix.com/om-nom-run/embed?sid=EE698" },
     { title: "Pizza Edition Jetpack Joyride", icon: "🚀", category: "Action", url: "https://play.gamepix.com/jetpack-joyride/embed?sid=EE698" },
     { title: "Pizza Edition Fruit Ninja", icon: "🍉", category: "Action", url: "https://play.gamepix.com/fruit-ninja/embed?sid=EE698" },
