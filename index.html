@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- THE MAGIC KEY: This unlocks the icons from GamePix -->
+    <meta name="referrer" content="no-referrer">
+    
     <!-- SEO Meta Tags - Focus Keyword: Pizza Edition Games -->
     <title>Pizza Edition Games - Play 100+ Premium Browser Games Online</title>
     <meta name="description" content="Welcome to Pizza Edition Games, the ultimate destination for 100+ premium browser games. Play the best Pizza Edition Games safely and for free. No downloads required.">
@@ -177,7 +180,7 @@
             filteredGames.forEach(game => {
                 const gameCard = `
                     <a href="game.html?id=${game.id}" class="game-card">
-                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=Pizza+Edition'">
+                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb" loading="lazy">
                         <div class="game-info">
                             <h3>${game.title}</h3>
                             <span>${game.category}</span>
