@@ -1,7 +1,7 @@
 /* 
-  Pizza Edition Games - Full 100 Game Database
-  Professional Square Icons | No "**" Stars | AdSense Safe Content
-  Keywords: Pizza Edition Games, Browser Games, Fun Online Games
+  Pizza Edition Games - Fixed Icon Database
+  Using reliable GamePix Icon URLs for a professional square grid.
+  No risky keywords, no "**" stars.
 */
 
 const gamesData = [
