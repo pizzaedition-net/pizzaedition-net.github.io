@@ -64,11 +64,15 @@
         #gameSearch:focus {
             border-color: #ff4d4d;
         }
-        /* Ensure images are visible */
+        /* Ensure images are visible and square */
         .game-thumb {
             display: block !important;
-            min-height: 150px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
             background: #222;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -184,16 +188,12 @@
             });
 
             filteredGames.forEach(game => {
-                // Ensure image URL is correct
-                let iconUrl = game.image;
-                if (!iconUrl.startsWith('http')) {
-                    // Fix if image URL is missing domain
-                    iconUrl = `https://www.gamepix.com/games/${game.id}/icon.png`;
-                }
+                // The Secret Code: Use the exact icon source from GamePix
+                const iconUrl = `https://www.gamepix.com/games/${game.id}/icon.png`;
 
                 const gameCard = `
                     <a href="game.html?id=${game.id}" class="game-card">
-                        <img src="${iconUrl}" alt="${game.title} - Pizza Edition Games" class="game-thumb" loading="lazy">
+                        <img src="${iconUrl}" alt="${game.title} - Pizza Edition Games" class="game-thumb" onerror="this.src='https://img.icons8.com/emoji/96/000000/pizza-emoji.png'">
                         <div class="game-info">
                             <h3>${game.title}</h3>
                             <span>${game.category}</span>
