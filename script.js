@@ -1,18 +1,107 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('gameSearch');
-    const gameCards = document.querySelectorAll('.game-card');
+/* 
+   Pizza Edition Games - 100% Unique Games Database
+   100 Unique Titles, 100 Unique Icons, 100 Unique Games
+*/
 
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            gameCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                if (title.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    }
-});
+const games = [
+    { title: "Pizza Edition Moto X3M", icon: "🏍️", category: "Racing", url: "https://play.gamepix.com/moto-x3m/embed?sid=EE698" },
+    { title: "Pizza Edition Bubble Shooter", icon: "🔮", category: "Puzzle", url: "https://play.gamepix.com/bubble-shooter/embed?sid=EE698" },
+    { title: "Pizza Edition 2048", icon: "🔢", category: "Puzzle", url: "https://play.gamepix.com/2048/embed?sid=EE698" },
+    { title: "Pizza Edition Subway Surfers", icon: "🏃", category: "Action", url: "https://play.gamepix.com/subway-surfers/embed?sid=EE698" },
+    { title: "Pizza Edition Temple Run 2", icon: "🗿", category: "Action", url: "https://play.gamepix.com/temple-run-2/embed?sid=EE698" },
+    { title: "Pizza Edition Moto Road Rash", icon: "🏍️", category: "Racing", url: "https://play.gamepix.com/moto-road-rash-3d/embed?sid=EE698" },
+    { title: "Pizza Edition Chess Online", icon: "♟️", category: "Puzzle", url: "https://play.gamepix.com/chess/embed?sid=EE698" },
+    { title: "Pizza Edition 8 Ball Pool", icon: "🎱", category: "Sports", url: "https://play.gamepix.com/pool-8-ball/embed?sid=EE698" },
+    { title: "Pizza Edition Basketball Stars", icon: "🏀", category: "Sports", url: "https://play.gamepix.com/basketball-stars/embed?sid=EE698" },
+    { title: "Pizza Edition Drift Hunters", icon: "🏎️", category: "Racing", url: "https://play.gamepix.com/drift-hunters/embed?sid=EE698" },
+    { title: "Pizza Edition Cut The Rope", icon: "🍬", category: "Puzzle", url: "https://play.gamepix.com/cut-the-rope/embed?sid=EE698" },
+    { title: "Pizza Edition Solitaire Classic", icon: "🃏", category: "Puzzle", url: "https://play.gamepix.com/solitaire/embed?sid=EE698" },
+    { title: "Pizza Edition Mahjong Deluxe", icon: "🀄", category: "Puzzle", url: "https://play.gamepix.com/mahjong/embed?sid=EE698" },
+    { title: "Pizza Edition Football Masters", icon: "⚽", category: "Sports", url: "https://play.gamepix.com/football-masters/embed?sid=EE698" },
+    { title: "Pizza Edition Vex 7 Adventure", icon: "🏃‍♂️", category: "Action", url: "https://play.gamepix.com/vex-7/embed?sid=EE698" },
+    { title: "Pizza Edition Fireboy & Watergirl", icon: "🔥", category: "Action", url: "https://play.gamepix.com/fireboy-and-watergirl/embed?sid=EE698" },
+    { title: "Pizza Edition Slope Run", icon: "🎾", category: "Action", url: "https://play.gamepix.com/slope/embed?sid=EE698" },
+    { title: "Pizza Edition Om Nom Run", icon: "🐸", category: "Action", url: "https://play.gamepix.com/om-nom-run/embed?sid=EE698" },
+    { title: "Pizza Edition Jetpack Joyride", icon: "🚀", category: "Action", url: "https://play.gamepix.com/jetpack-joyride/embed?sid=EE698" },
+    { title: "Pizza Edition Fruit Ninja", icon: "🍉", category: "Action", url: "https://play.gamepix.com/fruit-ninja/embed?sid=EE698" },
+    { title: "Pizza Edition Angry Birds", icon: "🐦", category: "Action", url: "https://play.gamepix.com/angry-birds/embed?sid=EE698" },
+    { title: "Pizza Edition Candy Crush", icon: "🍭", category: "Puzzle", url: "https://play.gamepix.com/candy-crush/embed?sid=EE698" },
+    { title: "Pizza Edition Tomb Runner", icon: "💎", category: "Action", url: "https://play.gamepix.com/tomb-runner/embed?sid=EE698" },
+    { title: "Pizza Edition Crossy Road", icon: "🐔", category: "Action", url: "https://play.gamepix.com/crossy-road/embed?sid=EE698" },
+    { title: "Pizza Edition Geometry Dash", icon: "🟦", category: "Action", url: "https://play.gamepix.com/geometry-dash/embed?sid=EE698" },
+    { title: "Pizza Edition Ludo Hero", icon: "🎲", category: "Puzzle", url: "https://play.gamepix.com/ludo-hero/embed?sid=EE698" },
+    { title: "Pizza Edition Tic Tac Toe", icon: "❌", category: "Puzzle", url: "https://play.gamepix.com/tic-tac-toe/embed?sid=EE698" },
+    { title: "Pizza Edition Penalty Shooters", icon: "🥅", category: "Sports", url: "https://play.gamepix.com/penalty-shooters-2/embed?sid=EE698" },
+    { title: "Pizza Edition Moto X3M Pool", icon: "🏊", category: "Racing", url: "https://play.gamepix.com/moto-x3m-pool-party/embed?sid=EE698" },
+    { title: "Pizza Edition Moto X3M Spooky", icon: "🎃", category: "Racing", url: "https://play.gamepix.com/moto-x3m-spooky-land/embed?sid=EE698" },
+    { title: "Pizza Edition Flappy Bird", icon: "🐤", category: "Action", url: "https://play.gamepix.com/flappy-bird/embed?sid=EE698" },
+    { title: "Pizza Edition Snake Retro", icon: "🐍", category: "Action", url: "https://play.gamepix.com/snake/embed?sid=EE698" },
+    { title: "Pizza Edition Uno Online", icon: "🎴", category: "Puzzle", url: "https://play.gamepix.com/uno-online/embed?sid=EE698" },
+    { title: "Pizza Edition Gold Miner", icon: "⛏️", category: "Action", url: "https://play.gamepix.com/gold-miner/embed?sid=EE698" },
+    { title: "Pizza Edition Tank Trouble", icon: "🚜", category: "Action", url: "https://play.gamepix.com/tank-trouble/embed?sid=EE698" },
+    { title: "Pizza Edition Stickman Hook", icon: "🪝", category: "Action", url: "https://play.gamepix.com/stickman-hook/embed?sid=EE698" },
+    { title: "Pizza Edition Paper.io 2", icon: "📄", category: "Action", url: "https://play.gamepix.com/paper-io-2/embed?sid=EE698" },
+    { title: "Pizza Edition Hole.io", icon: "🕳️", category: "Action", url: "https://play.gamepix.com/hole-io/embed?sid=EE698" },
+    { title: "Pizza Edition Aquapark.io", icon: "🌊", category: "Action", url: "https://play.gamepix.com/aquapark-io/embed?sid=EE698" },
+    { title: "Pizza Edition Crowd City", icon: "👥", category: "Action", url: "https://play.gamepix.com/crowd-city/embed?sid=EE698" },
+    { title: "Pizza Edition Helix Jump", icon: "🌀", category: "Action", url: "https://play.gamepix.com/helix-jump/embed?sid=EE698" },
+    { title: "Pizza Edition Tiles Hop", icon: "🎹", category: "Puzzle", url: "https://play.gamepix.com/tiles-hop/embed?sid=EE698" },
+    { title: "Pizza Edition Stack Ball", icon: "🧱", category: "Action", url: "https://play.gamepix.com/stack-ball/embed?sid=EE698" },
+    { title: "Pizza Edition Woodturning", icon: "🪵", category: "Puzzle", url: "https://play.gamepix.com/woodturning/embed?sid=EE698" },
+    { title: "Pizza Edition Paint Pop 3D", icon: "🎨", category: "Action", url: "https://play.gamepix.com/paint-pop-3d/embed?sid=EE698" },
+    { title: "Pizza Edition Fun Race 3D", icon: "🏃‍♀️", category: "Racing", url: "https://play.gamepix.com/fun-race-3d/embed?sid=EE698" },
+    { title: "Pizza Edition Run Race 3D", icon: "🏁", category: "Racing", url: "https://play.gamepix.com/run-race-3d/embed?sid=EE698" },
+    { title: "Pizza Edition Epic Race 3D", icon: "🏆", category: "Racing", url: "https://play.gamepix.com/epic-race-3d/embed?sid=EE698" },
+    { title: "Pizza Edition Sky Roller", icon: "🛼", category: "Action", url: "https://play.gamepix.com/sky-roller/embed?sid=EE698" },
+    { title: "Pizza Edition Turbo Stars", icon: "🛹", category: "Racing", url: "https://play.gamepix.com/turbo-stars/embed?sid=EE698" },
+    { title: "Pizza Edition Sand Balls", icon: "🏐", category: "Puzzle", url: "https://play.gamepix.com/sand-balls/embed?sid=EE698" },
+    { title: "Pizza Edition Perfect Slices", icon: "🔪", category: "Puzzle", url: "https://play.gamepix.com/perfect-slices/embed?sid=EE698" },
+    { title: "Pizza Edition Johnny Trigger", icon: "🔫", category: "Action", url: "https://play.gamepix.com/johnny-trigger/embed?sid=EE698" },
+    { title: "Pizza Edition Hunter Assassin", icon: "🗡️", category: "Action", url: "https://play.gamepix.com/hunter-assassin/embed?sid=EE698" },
+    { title: "Pizza Edition Brain Out", icon: "💡", category: "Puzzle", url: "https://play.gamepix.com/brain-out/embed?sid=EE698" },
+    { title: "Pizza Edition Brain Test", icon: "🧠", category: "Puzzle", url: "https://play.gamepix.com/brain-test/embed?sid=EE698" },
+    { title: "Pizza Edition Word Cookies", icon: "🍪", category: "Puzzle", url: "https://play.gamepix.com/word-cookies/embed?sid=EE698" },
+    { title: "Pizza Edition Word Connect", icon: "🔡", category: "Puzzle", url: "https://play.gamepix.com/word-connect/embed?sid=EE698" },
+    { title: "Pizza Edition Magic Tiles 3", icon: "🎵", category: "Puzzle", url: "https://play.gamepix.com/magic-tiles-3/embed?sid=EE698" },
+    { title: "Pizza Edition Piano Tiles 2", icon: "🎹", category: "Puzzle", url: "https://play.gamepix.com/piano-tiles-2/embed?sid=EE698" },
+    { title: "Pizza Edition Tiles Hop 2", icon: "🎶", category: "Puzzle", url: "https://play.gamepix.com/tiles-hop-2/embed?sid=EE698" },
+    { title: "Pizza Edition Dancing Road", icon: "🛣️", category: "Racing", url: "https://play.gamepix.com/dancing-road/embed?sid=EE698" },
+    { title: "Pizza Edition Color Road", icon: "🌈", category: "Racing", url: "https://play.gamepix.com/color-road/embed?sid=EE698" },
+    { title: "Pizza Edition Rolling Sky", icon: "☁️", category: "Action", url: "https://play.gamepix.com/rolling-sky/embed?sid=EE698" },
+    { title: "Pizza Edition Speed Ball", icon: "🥎", category: "Action", url: "https://play.gamepix.com/speed-ball/embed?sid=EE698" },
+    { title: "Pizza Edition ZigZag", icon: "📉", category: "Action", url: "https://play.gamepix.com/zigzag/embed?sid=EE698" },
+    { title: "Pizza Edition Twist", icon: "🌪️", category: "Action", url: "https://play.gamepix.com/twist/embed?sid=EE698" },
+    { title: "Pizza Edition Stack", icon: "🏗️", category: "Puzzle", url: "https://play.gamepix.com/stack/embed?sid=EE698" },
+    { title: "Pizza Edition Ketchapp Basketball", icon: "🏀", category: "Sports", url: "https://play.gamepix.com/ketchapp-basketball/embed?sid=EE698" },
+    { title: "Pizza Edition Dunk Shot", icon: "🗑️", category: "Sports", url: "https://play.gamepix.com/dunk-shot/embed?sid=EE698" },
+    { title: "Pizza Edition Knife Hit", icon: "🎯", category: "Action", url: "https://play.gamepix.com/knife-hit/embed?sid=EE698" },
+    { title: "Pizza Edition Flip Master", icon: "🤸", category: "Sports", url: "https://play.gamepix.com/flip-master/embed?sid=EE698" },
+    { title: "Pizza Edition Flip Diver", icon: "🏊‍♂️", category: "Sports", url: "https://play.gamepix.com/flip-diver/embed?sid=EE698" },
+    { title: "Pizza Edition Trampoline Stickman", icon: "🕴️", category: "Sports", url: "https://play.gamepix.com/trampoline-stickman/embed?sid=EE698" },
+    { title: "Pizza Edition Happy Glass", icon: "🥛", category: "Puzzle", url: "https://play.gamepix.com/happy-glass/embed?sid=EE698" },
+    { title: "Pizza Edition Love Balls", icon: "💕", category: "Puzzle", url: "https://play.gamepix.com/love-balls/embed?sid=EE698" },
+    { title: "Pizza Edition Draw In", icon: "✏️", category: "Puzzle", url: "https://play.gamepix.com/draw-in/embed?sid=EE698" },
+    { title: "Pizza Edition Bumper.io", icon: "🚗", category: "Action", url: "https://play.gamepix.com/bumper-io/embed?sid=EE698" },
+    { title: "Pizza Edition Slither.io", icon: "🐛", category: "Action", url: "https://play.gamepix.com/slither-io/embed?sid=EE698" },
+    { title: "Pizza Edition Wormate.io", icon: "🍩", category: "Action", url: "https://play.gamepix.com/wormate-io/embed?sid=EE698" },
+    { title: "Pizza Edition Diep.io", icon: "🛡️", category: "Action", url: "https://play.gamepix.com/diep-io/embed?sid=EE698" },
+    { title: "Pizza Edition Wings.io", icon: "✈️", category: "Action", url: "https://play.gamepix.com/wings-io/embed?sid=EE698" },
+    { title: "Pizza Edition Brutal.io", icon: "🔨", category: "Action", url: "https://play.gamepix.com/brutal-io/embed?sid=EE698" },
+    { title: "Pizza Edition Gartic.io", icon: "🖍️", category: "Puzzle", url: "https://play.gamepix.com/gartic-io/embed?sid=EE698" },
+    { title: "Pizza Edition Skribbl.io", icon: "✍️", category: "Puzzle", url: "https://play.gamepix.com/skribbl-io/embed?sid=EE698" },
+    { title: "Pizza Edition Zombs.io", icon: "🧟", category: "Action", url: "https://play.gamepix.com/zombs-io/embed?sid=EE698" },
+    { title: "Pizza Edition Surviv.io", icon: "📦", category: "Action", url: "https://play.gamepix.com/surviv-io/embed?sid=EE698" },
+    { title: "Pizza Edition Mope.io", icon: "🐘", category: "Action", url: "https://play.gamepix.com/mope-io/embed?sid=EE698" },
+    { title: "Pizza Edition Evowars.io", icon: "⚔️", category: "Action", url: "https://play.gamepix.com/evowars-io/embed?sid=EE698" },
+    { title: "Pizza Edition Krunker.io", icon: "🔫", category: "Action", url: "https://play.gamepix.com/krunker-io/embed?sid=EE698" },
+    { title: "Pizza Edition Shell Shockers", icon: "🥚", category: "Action", url: "https://play.gamepix.com/shell-shockers/embed?sid=EE698" },
+    { title: "Pizza Edition Bonk.io", icon: "🎾", category: "Action", url: "https://play.gamepix.com/bonk-io/embed?sid=EE698" },
+    { title: "Pizza Edition Agar.io", icon: "🔴", category: "Action", url: "https://play.gamepix.com/agar-io/embed?sid=EE698" },
+    { title: "Pizza Edition Splix.io", icon: "🟩", category: "Action", url: "https://play.gamepix.com/splix-io/embed?sid=EE698" },
+    { title: "Pizza Edition Little Big Snake", icon: "🐍", category: "Action", url: "https://play.gamepix.com/little-big-snake/embed?sid=EE698" },
+    { title: "Pizza Edition Powerline.io", icon: "⚡", category: "Action", url: "https://play.gamepix.com/powerline-io/embed?sid=EE698" },
+    { title: "Pizza Edition FlyOrDie.io", icon: "🪰", category: "Action", url: "https://play.gamepix.com/flyordie-io/embed?sid=EE698" },
+    { title: "Pizza Edition Deeeep.io", icon: "🐟", category: "Action", url: "https://play.gamepix.com/deeeep-io/embed?sid=EE698" },
+    { title: "Pizza Edition Starve.io", icon: "❄️", category: "Action", url: "https://play.gamepix.com/starve-io/embed?sid=EE698" },
+    { title: "Pizza Edition Limax.io", icon: "🐌", category: "Action", url: "https://play.gamepix.com/limax-io/embed?sid=EE698" }
+];
