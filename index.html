@@ -7,50 +7,138 @@
     <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        #gameModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98 ); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; }
-        .close-btn { position: absolute; top: 15px; right: 25px; font-size: 45px; color: #ff4d4d; cursor: pointer; font-weight: bold; }
-        .game-container { width: 95%; max-width: 1100px; height: 85vh; background: #000; border: 3px solid #ff4d4d; border-radius: 15px; overflow: hidden; }
-        .game-container iframe { width: 100%; height: 100%; border: none; }
-        .modal-header h2 { color: #ffcc00; text-align: center; margin-bottom: 10px; }
-    </style>
 </head>
 <body>
+
+    <!-- Header & Navigation -->
     <header>
         <a href="index.html" class="logo">🍕 Pizza Edition <span>Games</span></a>
-        <nav><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <!-- Hero Section -->
     <section class="hero">
         <h1>Pizza Edition Games</h1>
-        <p>Play 100+ unblocked Pizza Edition Games for free!</p>
-        <div class="search-container"><input type="text" id="gameSearch" placeholder="Search Pizza Edition Games..."></div>
+        <p>Play 100+ unblocked Pizza Edition Games for free! No downloads, just fun.</p>
+        <div class="search-container">
+            <input type="text" id="gameSearch" placeholder="Search Pizza Edition Games...">
+        </div>
     </section>
-    <section class="games-section"><div class="games-grid" id="gamesGrid"></div></section>
-    <div id="gameModal"><span class="close-btn" onclick="closeGame()">&times;</span><div class="modal-header"><h2 id="modalTitle"></h2></div><div class="game-container" id="modalContent"></div></div>
-    
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="category-container">
+            <button class="cat-btn active" onclick="filterCategory('All' )">All Games</button>
+            <button class="cat-btn" onclick="filterCategory('Action')">Action</button>
+            <button class="cat-btn" onclick="filterCategory('Racing')">Racing</button>
+            <button class="cat-btn" onclick="filterCategory('Puzzle')">Puzzle</button>
+            <button class="cat-btn" onclick="filterCategory('Sports')">Sports</button>
+        </div>
+    </section>
+
+    <!-- Games Grid -->
+    <section class="games-section">
+        <div class="games-grid" id="gamesGrid">
+            <!-- Games will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div id="gameModal">
+        <span class="close-btn" onclick="closeGame()">&times;</span>
+        <div class="modal-header"><h2 id="modalTitle"></h2></div>
+        <div class="game-container" id="modalContent"></div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Pizza Edition Games</h4>
+                <p>The best place to play free online games. Join the fun today!</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pizza Edition Games. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script src="games.js"></script>
     <script>
         const grid = document.getElementById('gamesGrid');
-        function displayGames(filter = "") {
+        
+        function displayGames(filter = "", category = "All") {
             grid.innerHTML = "";
-            games.filter(g => g.title.toLowerCase().includes(filter.toLowerCase())).forEach(game => {
+            let filtered = games;
+            
+            if (category !== "All") {
+                filtered = filtered.filter(g => g.category === category);
+            }
+            
+            if (filter !== "") {
+                filtered = filtered.filter(g => g.title.toLowerCase().includes(filter.toLowerCase()));
+            }
+
+            filtered.forEach(game => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
-                card.innerHTML = `<img src="${game.img}" alt="${game.title}" class="game-thumbnail"><div class="game-info"><h3>${game.title}</h3><button onclick="openGame('${game.title}', '${game.url}')" style="background:var(--primary-color); color:white; border:none; padding:8px 20px; border-radius:20px; cursor:pointer; font-weight:bold;">Play Now</button></div>`;
+                card.innerHTML = `
+                    <div class="game-card-image" style="background: linear-gradient(45deg, #1a1a1a, #333); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                        ${game.icon || '🎮'}
+                    </div>
+                    <div class="game-info">
+                        <h3>${game.title}</h3>
+                        <button onclick="openGame('${game.title}', '${game.url}')">Play Now</button>
+                    </div>
+                `;
                 grid.appendChild(card);
             });
         }
+
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            displayGames("", cat);
+        }
+
         function openGame(title, url) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalContent').innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
             document.getElementById('gameModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
             window.history.pushState({}, '', `?game=${title.replace(/\s+/g, '-').toLowerCase()}`);
         }
+
         function closeGame() {
             document.getElementById('gameModal').style.display = 'none';
             document.getElementById('modalContent').innerHTML = "";
+            document.body.style.overflow = 'auto';
             window.history.pushState({}, '', 'index.html');
         }
+
         document.getElementById('gameSearch').addEventListener('input', (e) => displayGames(e.target.value));
         displayGames();
     </script>
