@@ -60,6 +60,54 @@
         .game-card-image span {
             font-size: 4rem;
         }
+
+        /* Centered & Large SEO Content */
+        .content-area {
+            padding: 80px 10%;
+            background: #151515;
+            text-align: center;
+        }
+        .content-area h2 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin-bottom: 25px;
+        }
+        .content-area h3 {
+            font-size: 2rem;
+            color: #ff4d4d;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .content-area p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cccccc;
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+        .faq-item {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ff4d4d;
+        }
+        .faq-item strong {
+            display: block;
+            font-size: 1.3rem;
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+        .faq-item p {
+            font-size: 1.1rem;
+            margin: 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -116,7 +164,7 @@
         </div>
     </div>
 
-    <!-- SEO Content Area -->
+    <!-- SEO Content Area (Centered & Large) -->
     <section class="content-area">
         <div class="container">
             <h2>Why Play Pizza Edition Games?</h2>
@@ -126,13 +174,15 @@
             <p>Simply browse our list of 100+ games, click on the "Play Now" button, and enjoy! All our Pizza Edition Games are free to play and require no downloads. We use advanced technology to make sure every Pizza Edition Game runs smoothly on your browser.</p>
 
             <h3>Frequently Asked Questions (FAQ)</h3>
-            <div class="faq-item">
-                <strong>Are Pizza Edition Games safe for school?</strong>
-                <p>Yes, our Pizza Edition Games are unblocked and safe to play during your breaks.</p>
-            </div>
-            <div class="faq-item">
-                <strong>How many Pizza Edition Games are available?</strong>
-                <p>We currently have over 100+ unique Pizza Edition Games, and we add more every week!</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <strong>Are Pizza Edition Games safe for school?</strong>
+                    <p>Yes, our Pizza Edition Games are unblocked and safe to play during your breaks.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>How many Pizza Edition Games are available?</strong>
+                    <p>We currently have over 100+ unique Pizza Edition Games, and we add more every week!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -188,7 +238,6 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 
-                // Check if image exists, otherwise use icon (Emoji)
                 let gameMedia = "";
                 if (game.img) {
                     gameMedia = `<img src="${game.img}" alt="${game.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -237,7 +286,6 @@
             displayGames();
         });
 
-        // Initial Load
         window.onload = displayGames;
     </script>
 </body>
