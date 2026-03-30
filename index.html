@@ -10,17 +10,58 @@
     <meta name="keywords" content="Pizza Edition Games, unblocked games, play online games, free games, school games, Pizza Edition, unblocked games 66, unblocked games 76">
     <link rel="canonical" href="https://pizzaedition-net.github.io/" />
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pizzaedition-net.github.io/">
-    <meta property="og:title" content="Pizza Edition Games - Play 100+ Unblocked Games Online">
-    <meta property="og:description" content="Discover 100+ best Pizza Edition Games for school and home. Play unblocked games for free with a professional and safe experience.">
-    
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon (Pizza Icon) -->
     <link rel="icon" href="https://img.icons8.com/emoji/48/000000/pizza-emoji.png" type="image/png">
+
+    <style>
+        /* Category Menu Styling */
+        .category-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .cat-btn {
+            background: #1e1e1e;
+            color: white;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #gameSearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            background: #1e1e1e;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #gameSearch:focus {
+            border-color: #ff4d4d;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,16 +82,25 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to Pizza Edition Games</h1>
-        <p>Your premium destination for 100+ unblocked games. Play **Pizza Edition Games** safely and for free, anytime, anywhere.</p>
+        <p>Your premium destination for 100+ unblocked games. Play Pizza Edition Games safely and for free, anytime, anywhere.</p>
     </section>
 
     <!-- Main Game Grid -->
     <main class="container">
-        <h2 class="section-title">Explore 100+ Pizza Edition Games</h2>
+        <h2 class="section-title">Explore Pizza Edition Games</h2>
         
-        <!-- Search Bar for Better UX -->
-        <div style="margin-bottom: 30px; text-align: center;">
-            <input type="text" id="gameSearch" placeholder="Search for Pizza Edition Games..." style="width: 100%; max-width: 600px; padding: 15px; border-radius: 25px; border: 1px solid #333; background: #1e1e1e; color: white; font-size: 1rem;">
+        <!-- Search & Categories -->
+        <div class="search-container">
+            <input type="text" id="gameSearch" placeholder="Search for Pizza Edition Games...">
+        </div>
+
+        <div class="category-menu">
+            <button class="cat-btn active" data-category="All">All Games</button>
+            <button class="cat-btn" data-category="Action">⚡ Action</button>
+            <button class="cat-btn" data-category="Puzzle">🧩 Puzzle</button>
+            <button class="cat-btn" data-category="Adventure">🗺️ Adventure</button>
+            <button class="cat-btn" data-category="Strategy">♟️ Strategy</button>
+            <button class="cat-btn" data-category="Sports">⚽ Sports</button>
         </div>
 
         <div class="game-grid" id="gameGrid">
@@ -61,16 +111,16 @@
         <section class="seo-text">
             <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
             <h2>Why Choose Pizza Edition Games?</h2>
-            <p>At **Pizza Edition Games**, we pride ourselves on offering a safe and professional platform for gamers of all ages. Whether you are looking for unblocked games for school or just want to pass the time with high-quality HTML5 games, our collection of **Pizza Edition Games** is curated to provide the best experience possible.</p>
+            <p>At Pizza Edition Games, we pride ourselves on offering a safe and professional platform for gamers of all ages. Whether you are looking for unblocked games for school or just want to pass the time with high-quality HTML5 games, our collection of Pizza Edition Games is curated to provide the best experience possible.</p>
 
             <h3>How to Play Pizza Edition Games?</h3>
-            <p>Playing our games is simple! You don't need to download anything or create an account. Just browse our collection, click on your favorite **Pizza Edition Games**, and start playing instantly in your browser. All games are optimized for both desktop and mobile devices.</p>
+            <p>Playing our games is simple! You don't need to download anything or create an account. Just browse our collection, click on your favorite Pizza Edition Games, and start playing instantly in your browser. All games are optimized for both desktop and mobile devices.</p>
 
             <h3>Frequently Asked Questions (FAQ)</h3>
             <div style="margin-top: 15px;">
-                <p><strong>Q: Are these games free?</strong><br>A: Yes! Every single one of the **Pizza Edition Games** on our site is 100% free to play.</p>
-                <p><strong>Q: Will these games work at school?</strong><br>A: We focus on providing unblocked games that work in most environments, making **Pizza Edition Games** a great choice for school breaks.</p>
-                <p><strong>Q: Do I need to download anything?</strong><br>A: No downloads are required. Our **Pizza Edition Games** run directly in your web browser using HTML5 technology.</p>
+                <p><strong>Q: Are these games free?</strong><br>A: Yes! Every single one of the Pizza Edition Games on our site is 100% free to play.</p>
+                <p><strong>Q: Will these games work at school?</strong><br>A: We focus on providing unblocked games that work in most environments, making Pizza Edition Games a great choice for school breaks.</p>
+                <p><strong>Q: Do I need to download anything?</strong><br>A: No downloads are required. Our Pizza Edition Games run directly in your web browser using HTML5 technology.</p>
             </div>
         </section>
     </main>
@@ -80,7 +130,7 @@
         <div class="footer-grid">
             <div class="footer-about">
                 <h4>Pizza Edition Games</h4>
-                <p>The best unblocked games for school and home. Experience the premium world of **Pizza Edition Games** today.</p>
+                <p>The best unblocked games for school and home. Experience the premium world of Pizza Edition Games today.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -108,14 +158,25 @@
     <script>
         const gameGrid = document.getElementById('gameGrid');
         const searchInput = document.getElementById('gameSearch');
+        const catBtns = document.querySelectorAll('.cat-btn');
+
+        let currentCategory = 'All';
 
         // Function to render games
-        function renderGames(games) {
+        function renderGames() {
+            const searchTerm = searchInput.value.toLowerCase();
             gameGrid.innerHTML = '';
-            games.forEach(game => {
+            
+            const filteredGames = gamesData.filter(game => {
+                const matchesSearch = game.title.toLowerCase().includes(searchTerm);
+                const matchesCategory = currentCategory === 'All' || game.category === currentCategory;
+                return matchesSearch && matchesCategory;
+            });
+
+            filteredGames.forEach(game => {
                 const gameCard = `
                     <a href="game.html?id=${game.id}" class="game-card">
-                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb">
+                        <img src="${game.image}" alt="${game.title} - Pizza Edition Games" class="game-thumb" onerror="this.src='https://via.placeholder.com/200?text=Pizza+Edition'">
                         <div class="game-info">
                             <h3>${game.title}</h3>
                             <span>${game.category}</span>
@@ -127,16 +188,19 @@
         }
 
         // Initial Load
-        renderGames(gamesData);
+        renderGames();
 
         // Search Functionality
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredGames = gamesData.filter(game => 
-                game.title.toLowerCase().includes(searchTerm) || 
-                game.category.toLowerCase().includes(searchTerm)
-            );
-            renderGames(filteredGames);
+        searchInput.addEventListener('input', renderGames);
+
+        // Category Filtering
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.getAttribute('data-category');
+                renderGames();
+            });
         });
     </script>
 
