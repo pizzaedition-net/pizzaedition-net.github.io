@@ -4,45 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Pizza Edition Games</title>
-    <meta name="description" content="Have questions or feedback about Pizza Edition Games? Contact us today. We would love to hear from our players!">
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #ff4d4d; --secondary: #ffcc00; --bg: #0f0f0f; --text: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg ); color: var(--text); line-height: 1.6; }
+        header { background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+        .content-area { padding: 80px 15%; text-align: center; }
+        .content-area h1 { color: var(--secondary); font-size: 3rem; margin-bottom: 30px; }
+        .contact-info { background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid #333; max-width: 600px; margin: 0 auto; }
+        .contact-info p { font-size: 1.2rem; color: #ccc; margin-bottom: 10px; }
+        footer { background: #000; padding: 40px; border-top: 3px solid var(--primary); text-align: center; color: #555; margin-top: 50px; }
+    </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">🍕 Pizza Edition <span>Games</span></a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#games">Games</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <nav><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="about.html">About Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></nav>
     </header>
-
     <section class="content-area">
-        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
-            <h1 style="color: var(--secondary-color ); margin-bottom: 30px;">Contact Pizza Edition Games</h1>
-            <p>Do you have a question, a game suggestion, or just want to say hello? We love hearing from the <strong>Pizza Edition Games</strong> community! Please feel free to reach out to us.</p>
-            
-            <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; margin-top: 30px; border: 1px solid var(--primary-color);">
-                <h3 style="color: var(--secondary-color); margin-bottom: 15px;">Email Us</h3>
-                <p>For support and inquiries: <a href="mailto:support@pizzaeditiongames.com" style="color: var(--primary-color); text-decoration: none;">support@pizzaeditiongames.com</a></p>
-                
-                <h3 style="color: var(--secondary-color); margin-top: 20px; margin-bottom: 15px;">Follow Us</h3>
-                <p>Stay updated with the latest Pizza Edition Games on our social media channels.</p>
-            </div>
-
-            <p style="margin-top: 30px;">We aim to respond to all inquiries within 24-48 hours. Thank you for supporting <strong>Pizza Edition Games</strong>!</p>
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <p>Have questions or feedback? We'd love to hear from you!</p>
+            <p>Email us at: <strong>support@pizzaeditiongames.com</strong></p>
+            <p>We usually respond within 24-48 hours.</p>
         </div>
     </section>
-
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Pizza Edition Games. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <footer><p>&copy; 2026 Pizza Edition Games. All Rights Reserved.</p></footer>
 </body>
 </html>
