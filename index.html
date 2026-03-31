@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Edition Games - Play 100+ Free Online Games</title>
-    <!-- Google Search Console Verification Tag -->
     <meta name="google-site-verification" content="gctsOIdQlXCflRrwH_MrWj6VNwE_xJyFQrKc1_01V28" />
-    
     <meta name="description" content="Play 100+ free Pizza Edition Games online. No downloads required. The best collection of action, puzzle, and racing Pizza Edition Games. Unblocked and fun!">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -21,7 +19,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--bg ); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        /* Header */
         header {
             background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
             border-bottom: 3px solid var(--primary); position: sticky; top: 0; z-index: 1000;
@@ -32,17 +29,15 @@
         nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
         nav ul li a:hover { color: var(--secondary); }
 
-        /* Hero */
         .hero { padding: 60px 5%; text-align: center; background: #111; border-bottom: 1px solid #222; }
         .hero h1 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px; }
         .hero p { color: #aaa; margin-bottom: 25px; }
-        .search-container { max-width: 600px; margin: 0 auto; }
+        .search-container { max-width: 600px; margin: 0 auto; padding: 0 15px; }
         .search-container input { 
             width: 100%; padding: 15px 25px; border-radius: 30px; border: 2px solid var(--primary); 
             background: #222; color: #fff; outline: none; font-size: 1rem;
         }
 
-        /* Main Layout with Sidebars */
         .main-layout {
             display: flex; justify-content: center; padding: 40px 2%; gap: 20px;
         }
@@ -50,24 +45,16 @@
             width: 160px; min-width: 160px; height: 600px; background: #111;
             display: flex; align-items: center; justify-content: center; position: sticky; top: 100px;
         }
-        .content-wrapper { flex-grow: 1; max-width: 1100px; }
+        .content-wrapper { flex-grow: 1; max-width: 1100px; width: 100%; }
 
-        /* Categories */
-        .category-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .category-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; padding: 0 10px; }
         .cat-btn {
-            background: #1a1a1a; color: #fff; border: 2px solid #333; padding: 10px 25px;
-            border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s;
+            background: #1a1a1a; color: #fff; border: 2px solid #333; padding: 8px 20px;
+            border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s; font-size: 0.9rem;
         }
         .cat-btn:hover, .cat-btn.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4); }
 
-        /* Horizontal Ad */
-        .horizontal-ad {
-            width: 100%; max-width: 728px; height: 90px; margin: 0 auto 40px;
-            background: #111; display: flex; align-items: center; justify-content: center; overflow: hidden;
-        }
-
-        /* Games Grid */
-        .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 10px; }
         .game-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: 0.3s; text-align: center; }
         .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); }
         .game-card-image { 
@@ -77,11 +64,10 @@
         .game-info { padding: 15px; }
         .game-info h3 { font-size: 1rem; margin-bottom: 12px; color: var(--secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .game-info button { 
-            background: var(--primary); color: #fff; border: none; padding: 8px 20px; 
-            border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%;
+            background: var(--primary); color: #fff; border: none; padding: 10px 20px; 
+            border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem;
         }
 
-        /* Modal */
         #gameModal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center;
@@ -93,36 +79,33 @@
         }
         .game-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* Article Section */
-        .article-section { padding: 80px 10%; background: #111; color: #ccc; border-top: 1px solid #222; }
-        .article-section h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 30px; text-align: center; }
-        .article-section h3 { font-size: 1.8rem; color: var(--primary); margin-top: 40px; margin-bottom: 20px; }
+        .article-section { padding: 60px 10%; background: #111; color: #ccc; border-top: 1px solid #222; }
+        .article-section h2 { font-size: 2.2rem; color: var(--secondary); margin-bottom: 25px; text-align: center; }
+        .article-section h3 { font-size: 1.6rem; color: var(--primary); margin-top: 35px; margin-bottom: 15px; }
         .article-section p { font-size: 1.1rem; margin-bottom: 20px; }
-        .article-section ul { margin-bottom: 20px; padding-left: 20px; }
-        .article-section ul li { margin-bottom: 10px; font-size: 1.1rem; }
-        .faq-item { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid var(--primary); }
-        .faq-item strong { display: block; font-size: 1.2rem; color: var(--secondary); margin-bottom: 10px; }
 
-        /* Footer */
         footer { background: #000; padding: 60px 10% 20px; border-top: 3px solid var(--primary); margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 20px; font-size: 1.3rem; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--secondary); padding-left: 5px; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #222; margin-top: 40px; color: #555; }
 
-        /* Mobile Adjustments */
-        @media (max-width: 1200px) { .sidebar-ad { display: none; } .main-layout { padding: 20px 5%; } }
+        /* Mobile Specific Fixes */
+        @media (max-width: 1200px) { 
+            .sidebar-ad { display: none; } 
+            .main-layout { padding: 20px 0; }
+        }
         @media (max-width: 768px) { 
-            .games-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } 
-            .hero h1 { font-size: 1.8rem; } 
-            .hero p { font-size: 0.9rem; }
+            .games-grid { grid-template-columns: 1fr; gap: 25px; padding: 0 20px; } 
+            .hero h1 { font-size: 1.8rem; padding: 0 10px; } 
+            .hero p { font-size: 0.9rem; padding: 0 15px; }
             nav ul { gap: 10px; }
-            nav ul li a { font-size: 0.8rem; }
-            .article-section { padding: 40px 5%; }
-            .article-section h2 { font-size: 1.8rem; }
+            nav ul li a { font-size: 0.75rem; }
+            .article-section { padding: 40px 20px; }
+            .article-section h2 { font-size: 1.6rem; }
+            .game-card-image { font-size: 5rem; } /* Bigger icons for mobile */
         }
     </style>
 </head>
@@ -164,11 +147,6 @@
                 <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
             </div>
 
-            <div class="horizontal-ad">
-                <script>atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script>
-                <script src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
-            </div>
-
             <div class="games-grid" id="gamesGrid"></div>
         </div>
 
@@ -188,10 +166,8 @@
         <div class="container">
             <h2>Pizza Edition: The Ultimate Destination for Unblocked Games</h2>
             <p>In the world of online gaming, finding a platform that offers a wide variety of high-quality, unblocked games can be a challenge. This is where <strong>Pizza Edition</strong> comes in. As a premier destination for gamers of all ages, Pizza Edition provides a seamless and fun gaming experience without the usual restrictions found in schools or workplaces.</p>
-            
             <h3>What is Pizza Edition?</h3>
             <p><strong>Pizza Edition</strong> is a popular online gaming portal that hosts a massive collection of free-to-play games. From action-packed adventures and fast-paced racing to brain-teasing puzzles and sports simulations, Pizza Edition has something for everyone. The platform is designed to be fast, secure, and easy to navigate, making it a favorite among the gaming community.</p>
-
             <h3>Why Choose Pizza Edition Games?</h3>
             <ul>
                 <li><strong>Unblocked Access:</strong> One of the biggest advantages of Pizza Edition is that its games are unblocked, meaning you can enjoy them even on restricted networks.</li>
@@ -199,10 +175,8 @@
                 <li><strong>Wide Variety:</strong> With over 100+ unique titles, you'll never run out of options. Whether you're a fan of classic retro games or modern 3D titles, Pizza Edition has it all.</li>
                 <li><strong>Safe and Secure:</strong> We prioritize the safety of our users, ensuring a secure environment for everyone to enjoy their favorite Pizza Edition Games.</li>
             </ul>
-
             <h3>How to Play on Pizza Edition</h3>
             <p>Getting started with <strong>Pizza Edition Games</strong> is incredibly simple. Just visit our homepage, browse through the extensive library of games, and click on the "Play Now" button for any title that catches your eye. Our platform is optimized for both desktop and mobile devices, so you can play whenever and wherever you want.</p>
-
             <h3>Join the Pizza Edition Community</h3>
             <p>Pizza Edition is more than just a gaming site; it's a community of passionate gamers. We are constantly updating our library with new and exciting Pizza Edition Games to keep the fun going. Join us today and discover why millions of players choose Pizza Edition as their go-to source for online entertainment!</p>
         </div>
