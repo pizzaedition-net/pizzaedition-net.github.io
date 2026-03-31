@@ -19,16 +19,36 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--bg ); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
+        /* Header */
         header {
             background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
             border-bottom: 3px solid var(--primary); position: sticky; top: 0; z-index: 1000;
         }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
         .logo span { color: var(--secondary); }
+        
+        /* Desktop Nav */
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
         nav ul li a:hover { color: var(--secondary); }
 
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* Hero */
         .hero { padding: 60px 5%; text-align: center; background: #111; border-bottom: 1px solid #222; }
         .hero h1 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px; }
         .hero p { color: #aaa; margin-bottom: 25px; }
@@ -38,65 +58,47 @@
             background: #222; color: #fff; outline: none; font-size: 1rem;
         }
 
-        .main-layout {
-            display: flex; justify-content: center; padding: 40px 2%; gap: 20px;
-        }
+        /* Main Layout */
+        .main-layout { display: flex; justify-content: center; padding: 40px 2%; gap: 20px; }
         .sidebar-ad {
             width: 160px; min-width: 160px; height: 600px; background: #111;
             display: flex; align-items: center; justify-content: center; position: sticky; top: 100px;
         }
         .content-wrapper { flex-grow: 1; max-width: 1100px; width: 100%; }
 
+        /* Categories */
         .category-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; padding: 0 10px; }
         .cat-btn {
             background: #1a1a1a; color: #fff; border: 2px solid #333; padding: 8px 20px;
             border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s; font-size: 0.9rem;
         }
-        .cat-btn:hover, .cat-btn.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4); }
+        .cat-btn:hover, .cat-btn.active { background: var(--primary); border-color: var(--primary); }
 
-        /* Mobile Ad Section - Hidden on Desktop */
-        .mobile-ad {
-            display: none;
-            width: 100%;
-            max-width: 320px;
-            height: 50px;
-            margin: 0 auto 30px;
-            background: #111;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+        /* Mobile Ad */
+        .mobile-ad { display: none; width: 100%; max-width: 320px; height: 50px; margin: 0 auto 30px; background: #111; align-items: center; justify-content: center; overflow: hidden; }
 
+        /* Games Grid */
         .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 10px; }
         .game-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: 0.3s; text-align: center; }
-        .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); }
-        .game-card-image { 
-            width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; 
-            font-size: 4rem; background: #222; border-bottom: 1px solid #333;
-        }
+        .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); }
+        .game-card-image { width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: #222; border-bottom: 1px solid #333; }
         .game-info { padding: 15px; }
         .game-info h3 { font-size: 1rem; margin-bottom: 12px; color: var(--secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .game-info button { 
-            background: var(--primary); color: #fff; border: none; padding: 10px 20px; 
-            border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem;
-        }
+        .game-info button { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; }
 
-        #gameModal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center;
-        }
+        /* Modal */
+        #gameModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; }
         .close-btn { position: absolute; top: 15px; right: 25px; font-size: 45px; color: var(--primary); cursor: pointer; font-weight: bold; }
-        .game-container { 
-            width: 95%; max-width: 1100px; height: 85vh; background: #000; 
-            border: 3px solid var(--primary); border-radius: 15px; overflow: hidden; 
-        }
+        .game-container { width: 95%; max-width: 1100px; height: 85vh; background: #000; border: 3px solid var(--primary); border-radius: 15px; overflow: hidden; }
         .game-container iframe { width: 100%; height: 100%; border: none; }
 
+        /* Article */
         .article-section { padding: 60px 10%; background: #111; color: #ccc; border-top: 1px solid #222; }
         .article-section h2 { font-size: 2.2rem; color: var(--secondary); margin-bottom: 25px; text-align: center; }
         .article-section h3 { font-size: 1.6rem; color: var(--primary); margin-top: 35px; margin-bottom: 15px; }
         .article-section p { font-size: 1.1rem; margin-bottom: 20px; }
 
+        /* Footer */
         footer { background: #000; padding: 60px 10% 20px; border-top: 3px solid var(--primary); margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
         .footer-col h4 { color: var(--primary); margin-bottom: 20px; font-size: 1.3rem; }
@@ -106,20 +108,23 @@
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #222; margin-top: 40px; color: #555; }
 
         /* Mobile Specific Fixes */
-        @media (max-width: 1200px) { 
-            .sidebar-ad { display: none; } 
-            .main-layout { padding: 20px 0; }
-        }
+        @media (max-width: 1200px) { .sidebar-ad { display: none; } .main-layout { padding: 20px 0; } }
         @media (max-width: 768px) { 
-            .mobile-ad { display: flex; } /* Show ad on mobile */
+            .menu-toggle { display: flex; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 70%; height: 100%;
+                background: #000; flex-direction: column; justify-content: center;
+                transition: 0.4s; z-index: 1050; border-left: 2px solid var(--primary);
+            }
+            nav.active { right: 0; }
+            nav ul { flex-direction: column; align-items: center; gap: 30px; }
+            nav ul li a { font-size: 1.2rem; }
+            
+            .mobile-ad { display: flex; }
             .games-grid { grid-template-columns: 1fr; gap: 25px; padding: 0 20px; } 
-            .hero h1 { font-size: 1.8rem; padding: 0 10px; } 
-            .hero p { font-size: 0.9rem; padding: 0 15px; }
-            nav ul { gap: 10px; }
-            nav ul li a { font-size: 0.75rem; }
+            .hero h1 { font-size: 1.8rem; } 
             .article-section { padding: 40px 20px; }
             .article-section h2 { font-size: 1.6rem; }
-            .game-card-image { font-size: 5rem; }
         }
     </style>
 </head>
@@ -127,7 +132,10 @@
 
     <header>
         <a href="index.html" class="logo">🍕 Pizza Edition <span>Games</span></a>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -161,11 +169,8 @@
                 <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
             </div>
 
-            <!-- Mobile Ad Unit (320x50) -->
             <div class="mobile-ad">
-                <script type="text/javascript">
-                    atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-                </script>
+                <script type="text/javascript">atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };</script>
                 <script type="text/javascript" src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
             </div>
 
@@ -178,7 +183,6 @@
         </div>
     </div>
 
-    <!-- [Rest of the code remains exactly the same: Modal, Article, Footer, Scripts] -->
     <div id="gameModal">
         <span class="close-btn" onclick="closeGame( )">&times;</span>
         <div class="modal-header"><h2 id="modalTitle" style="color: var(--secondary); margin-bottom: 10px;"></h2></div>
@@ -232,6 +236,14 @@
 
     <script src="games.js"></script>
     <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
         const grid = document.getElementById('gamesGrid');
         let currentCategory = "All";
         let currentSearch = "";
