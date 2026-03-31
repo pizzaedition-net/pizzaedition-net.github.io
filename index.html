@@ -54,6 +54,19 @@
         }
         .cat-btn:hover, .cat-btn.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4); }
 
+        /* Mobile Ad Section - Hidden on Desktop */
+        .mobile-ad {
+            display: none;
+            width: 100%;
+            max-width: 320px;
+            height: 50px;
+            margin: 0 auto 30px;
+            background: #111;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 10px; }
         .game-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: 0.3s; text-align: center; }
         .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); }
@@ -98,6 +111,7 @@
             .main-layout { padding: 20px 0; }
         }
         @media (max-width: 768px) { 
+            .mobile-ad { display: flex; } /* Show ad on mobile */
             .games-grid { grid-template-columns: 1fr; gap: 25px; padding: 0 20px; } 
             .hero h1 { font-size: 1.8rem; padding: 0 10px; } 
             .hero p { font-size: 0.9rem; padding: 0 15px; }
@@ -105,7 +119,7 @@
             nav ul li a { font-size: 0.75rem; }
             .article-section { padding: 40px 20px; }
             .article-section h2 { font-size: 1.6rem; }
-            .game-card-image { font-size: 5rem; } /* Bigger icons for mobile */
+            .game-card-image { font-size: 5rem; }
         }
     </style>
 </head>
@@ -147,6 +161,14 @@
                 <button class="cat-btn" onclick="filterCategory('Sports', this)">Sports</button>
             </div>
 
+            <!-- Mobile Ad Unit (320x50) -->
+            <div class="mobile-ad">
+                <script type="text/javascript">
+                    atOptions = { 'key' : '6d5fc2bb86a2405e48f209077365fea6', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+                </script>
+                <script type="text/javascript" src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
+            </div>
+
             <div class="games-grid" id="gamesGrid"></div>
         </div>
 
@@ -156,6 +178,7 @@
         </div>
     </div>
 
+    <!-- [Rest of the code remains exactly the same: Modal, Article, Footer, Scripts] -->
     <div id="gameModal">
         <span class="close-btn" onclick="closeGame( )">&times;</span>
         <div class="modal-header"><h2 id="modalTitle" style="color: var(--secondary); margin-bottom: 10px;"></h2></div>
