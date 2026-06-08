@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pizzaedition-net.github.io/sitemap.xml
