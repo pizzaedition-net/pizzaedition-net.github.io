@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - Pizza Edition Games</title>
+    <meta name="description" content="Browse games by category on Pizza Edition Games.">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="./index.html" class="logo">Pizza Edition Games</a>
+            <nav id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./category.html?cat=Action">Action</a></li>
+                    <li><a href="./category.html?cat=Racing">Racing</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./privacy.html">Privacy</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="category-header">
+            <h1 id="category-title">Category Games</h1>
+            <p id="category-desc">Browse our collection of games in this category.</p>
+        </section>
+
+        <section class="game-section">
+            <div id="category-games" class="game-grid">
+                <!-- Games will be injected by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2026 Pizza Edition Games. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./privacy.html">Privacy</a></li>
+                <li><a href="./terms.html">Terms</a></li>
+                <li><a href="./dmca.html">DMCA</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/category.js"></script>
+</body>
+</html>
